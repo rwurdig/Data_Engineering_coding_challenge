@@ -6,10 +6,10 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/rwurdig/Data_Engineering_coding_challenge\img\Globant_logo.png">
+  <a href="https://github.com/rwurdig/Data_Engineering_coding_challenge/img/Globant_logo.png">
     <img src="img/Globant_logo.png" alt="Globant_logo" width="80" height="80">
   </a>
-
+img/Globant_logo.png
 <h3 align="center">Globant Project</h3>
 
   <p align="center">
