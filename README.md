@@ -201,15 +201,36 @@ docker run \
   neo4j:latest
 ```
 
-Getting Started with Neo4j: https://neo4j.com/docs/getting-started/current/
+## Enviroment Info
 
+The solution will be deployed in the Azure Cloud environment, and there are some important considerations to keep in mind:
 
-## Data Model
-The data model should be a graph data model. The graph should contain nodes for proteins, genes, organisms, references, and more. The graph should contain edges for the relationships between these nodes. The relationships should be based on the XML schema. For example, the `protein` element contains a `recommendedName` element. The `recommendedName` element contains a `fullName` element. The `fullName` element contains the full name of the protein. The graph should contain an edge between the `protein` node and the `fullName` node.
+The CSV files will be stored in an Azure Storage Account, which offers low costs.
 
-Here is an example for the target data model:
+For this proof-of-concept (PoC), the chosen database will be Azure SQL Database, which is also cost-effective with a basic plan priced at $4.99 USD per month.
 
-![Example Data Model](./img/example_data_model.png)
+The required features for the solution will be implemented using Azure Functions as a REST API, providing low costs and serverless capabilities.
+
+The primary programming language used for code development will be Python.
+
+## Architecture Design
+
+In this PoC, we propose a modern architecture that is both flexible and scalable for future growth. The architecture will involve several steps to ultimately structure and migrate the information. 
+There are a few key aspects to consider:
+
+![Diagrama ArquitecturaGlobantChallenge drawio](https://user-images.githubusercontent.com/81250098/230745098-3cd96d3a-abe7-4c7e-8ef5-4d3df1d5b7f2.png)
+
+- Development will begin after the ingestion step, with data loaded into the Storage Account.
+- Visualization will not be included in this PoC, but the data will be prepared for consumption in various report designers such as Power BI, Tableau Server, etc.
+- For this challenge, the API will serve information directly from the database. However, this is not considered best practice as data warehouse systems should not be directly accessed 
+for API data serving. Instead, a processed data warehouse with a GOLD zone should be established.
+- We will implement data lake zoning with Bronze, Silver, and Gold to keep the data organized.
+
+## Important Notes
+
+- This scenario will not include separate environments for Development, QA, and Production. All aspects will be handled within a single production environment. Ideally, best practices dictate the use of three separate environments and configurations for CI/CD, but this will not be implemented in the PoC due to time and cost constraints.
+
+- Add additional notes..
 
 
 ## Assessed Criteria
