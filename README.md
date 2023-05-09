@@ -138,7 +138,7 @@ The primary programming language used for code development will be Python.
 In this PoC, we propose a modern architecture that is both flexible and scalable for future growth. The architecture will involve several steps to ultimately structure and migrate the information. 
 There are a few key aspects to consider:
 
-![Diagrama ArquitecturaGlobantChallenge drawio]([https://user-images.githubusercontent.com/81250098/230745098-3cd96d3a-abe7-4c7e-8ef5-4d3df1d5b7f2.png](https://github.com/rwurdig/Data_Engineering_coding_challenge/blob/main/img/Azure_POC.drawio.png))
+https://github.com/rwurdig/Data_Engineering_coding_challenge/blob/main/img/Azure_POC.drawio.png
 
 After loading data into the Storage Account during the ingestion step, development work will commence. Although visualization is not part of this Proof of Concept (PoC), the data will be prepared for easy consumption in various report design tools like Power BI, Tableau Server, and more.
 
