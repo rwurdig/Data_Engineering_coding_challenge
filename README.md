@@ -6,14 +6,14 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/rwurdig/Data_Engineering_coding_challenge\img\Globant_logo.png">
+  <a href="https://github.com/rwurdig/Data_Engineering_coding_challenge">
     <img src="img/Globant_logo.png" alt="Globant_logo" width="224" height="66">
   </a>
-img/Globant_logo.png
-<h3 align="center">Globant Project</h3>
+
+  <h3 align="center">Globant Project</h3>
   
   <p align="center">
-    This project import data from CSV files stored in Azure Blob Storage to an Azure Database for MySQL instance
+    This project of PoC will demonstrate how to store CSV files to Storage Account from Azure.
     <br />
     <a href="https://github.com/rwurdig/Globant_project"><strong>Explore the docs »</strong></a>
     <br />
@@ -26,6 +26,7 @@ img/Globant_logo.png
   </p>
 </div>
 
+
 <!-- TABLE OF CONTENTS -->
 
 <details>
@@ -36,19 +37,15 @@ img/Globant_logo.png
       <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation-and-prerequisites">Installation and Prerequisites</a></li>
-      </ul>
-    </li>
+    <li><a href="#built-with">Built With</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#enviroment-info">Enviroment Info</a></li>
+    <li><a href="#architecture-design">Architecture Design</a></li>
+    <li><a href="#important-notes">Important Notes</a></li>
   </ol>
 </details>
 
@@ -65,69 +62,15 @@ img/Globant_logo.png
 
 ## About The Project
 
-This project import data from CSV files stored in Azure Blob Storage to an Azure Database for MySQL instance.
+This project of PoC will demonstrate how to manage CSV files to create historical copies of information and daily transactions for a database migration involving three different tables (departments, jobs, employees). The solution includes:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-* Docker and Docker-Compose
-* Python (docker container)
-* Airflow (docker container)
-* Bash scripting
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-This is how you setting up your project locally.
-```
-- To get a local copy up and running follow these simple steps bellow.
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- INSTALLATION AND PREREQUISITES -->
-
-### Installation and Prerequisites
-
-#### To run this code, you will need to have the following softwares and libraries installed:
-
-* Airflow 2.5.2
-* Neo4j  5.6.0
-* pendulum 2.1.2
-* pip 23.0.1
-* postgres:14.0
-* Python 3.x
-* py2neo 2021.2.3
-* xmltodict 0.13.0
-
-#### After installing Python and pip, run the following command to install the necessary Python packages:
-
-### 1. Install  packages:
-```bash
-  pip install neo4j xml airflow etc
-```
-
-### 2. Clone the repository
-```bash
-   git clone https://github.com/rwurdig/Weavebio_project.git
-```
-
-```bash
-   cd Weavebio_project
-```
-
-### 3. Run the build.sh file with admin privileges.
-
-```bash
-  chmod +x build.sh
-  ./build.sh
-```
-
-### 4. The project will start and it will build all the images on the docker compose and run it.
+* Azure Cloud
+* Python
+* Databricks
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,7 +106,7 @@ Distributed under the MIT License. See [License](./Weavebio_project/LICENCE.txt)
 
 👤 Rwurdig:  [E-mail](rwurdig@gmail.com)
 
-   Project Link: [https://github.com/rwurdig/Weavebio_project](https://github.com/rwurdig/Weavebio_project)
+   Project Link: [https://github.com/rwurdig/Data_Engineering_coding_challenge](https://github.com/rwurdig/Data_Engineering_coding_challenge)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,29 +120,6 @@ Distributed under the MIT License. See [License](./Weavebio_project/LICENCE.txt)
 1. Receive historical data from CSV files
 2. Upload these files to the new DB
 3. Be able to insert batch transactions (1 up to 1000 rows) with one request.
-> XXX
-## Task
-xxxxxxxx
-
-## Requirements & Tools
-- Use Apache Airflow or a similar workflow management tool to orchestrate the pipeline
-- The pipeline should run on a local machine
-- Use open-source tools as much as possible
-
-## Source Data
-Use the CSVs files provided in the `data` directory.
-
-xxxxxxxx
-
-## Docker
-Please run a Neo4j database locally. You can download Neo4j from https://neo4j.com/download-center/ or run it in Docker:
-
-```
-docker run \
-  --publish=7474:7474 --publish=7687:7687 \
-  --volume=$HOME/neo4j/data:/data \
-  neo4j:latest
-```
 
 ## Enviroment Info
 
@@ -218,37 +138,16 @@ The primary programming language used for code development will be Python.
 In this PoC, we propose a modern architecture that is both flexible and scalable for future growth. The architecture will involve several steps to ultimately structure and migrate the information. 
 There are a few key aspects to consider:
 
-![Diagrama ArquitecturaGlobantChallenge drawio](https://user-images.githubusercontent.com/81250098/230745098-3cd96d3a-abe7-4c7e-8ef5-4d3df1d5b7f2.png)
+![Diagrama ArquitecturaGlobantChallenge drawio]([https://user-images.githubusercontent.com/81250098/230745098-3cd96d3a-abe7-4c7e-8ef5-4d3df1d5b7f2.png](https://github.com/rwurdig/Data_Engineering_coding_challenge/blob/main/img/Azure_POC.drawio.png))
 
-- Development will begin after the ingestion step, with data loaded into the Storage Account.
-- Visualization will not be included in this PoC, but the data will be prepared for consumption in various report designers such as Power BI, Tableau Server, etc.
-- For this challenge, the API will serve information directly from the database. However, this is not considered best practice as data warehouse systems should not be directly accessed 
-for API data serving. Instead, a processed data warehouse with a GOLD zone should be established.
-- We will implement data lake zoning with Bronze, Silver, and Gold to keep the data organized.
+After loading data into the Storage Account during the ingestion step, development work will commence. Although visualization is not part of this Proof of Concept (PoC), the data will be prepared for easy consumption in various report design tools like Power BI, Tableau Server, and more.
+
+- For the present challenge, the API will serve data directly from the database, which is not the recommended approach as it goes against the best practice for data warehouse systems. Instead, a processed data warehouse with a GOLD zone should be established to serve API data.
+
+- To ensure data organization, we will implement data lake zoning with Bronze, Silver, and Gold levels.
 
 ## Important Notes
 
-- This scenario will not include separate environments for Development, QA, and Production. All aspects will be handled within a single production environment. Ideally, best practices dictate the use of three separate environments and configurations for CI/CD, but this will not be implemented in the PoC due to time and cost constraints.
+- In this scenario, Development, QA, and Production will not be separated into distinct environments. Instead, all aspects will be managed within a single production environment. While best practices recommend having three separate environments and configurations for CI/CD, this approach will not be implemented in the PoC due to constraints on time and cost.
 
 - Add additional notes..
-
-
-## Assessed Criteria
-
-> :warning: The solution will not be assessed based on correctness of the data model with respect to biological entities. This requires domain knowledge that we do not expect you to have. 
-We will assess the solution based on the following criteria:
-
-- The solution captures most of the data from the XML
-- The solution makes use of general purpose open-source tools
-- The solution can be scaled to handle larger datasets
-
-## Example Code
-In the `example_code` directory, you will find some example Python code for loading data to Neo4j.
-
-## Submission
-**Please commit your solution to a new repository on GitHub**.
-
-Feel free to use this repository as a starting point or to start from scratch. Include a `README.md` file that describes how to run the solution. 
-Please also include a description how to set up and reproduce the environment required to run the solution.
-
-Finally, email join@weave.bio with 1) the link to your solution repo and 2) your resume
